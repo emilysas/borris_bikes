@@ -22,9 +22,10 @@ describe DockingStation do
     25.times {station.dock(Bike.new)}
     expect(station).to be_full
   end
-    it "should not accept a bike if it's full" do
+
+  it "should not accept a bike if it's full" do
     25.times { station.dock(Bike.new) }
     expect(lambda { station.dock(bike) }).to raise_error(RuntimeError, 'Station is full')
   end
-  end
+  
 end
