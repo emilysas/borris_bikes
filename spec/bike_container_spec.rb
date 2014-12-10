@@ -4,14 +4,14 @@ class ContainerHolder; include BikeContainer; end
 
 describe BikeContainer do
 
-  let(:bike) { Bike.new }
+  let(:bike) {double :bike}
+  let(:working_bike) {double :bike, broken?: false}
+  let(:broken_bike) {double :bike, broken?: true}
   let(:holder) { ContainerHolder.new }
  
   def station_with_two_bikes
-    @working_bike, @broken_bike = Bike.new, Bike.new
-    @broken_bike.break!
-    holder.dock(@working_bike)
-    holder.dock(@broken_bike)
+    holder.dock(working_bike)
+    holder.dock(broken_bike)
   end
 
   it "should accept bikes" do
@@ -40,10 +40,10 @@ describe BikeContainer do
 
   it "should provide a list of available bikes" do
     station_with_two_bikes
-    expect(holder.available_bikes).to eq([@working_bike])
+    expect(holder.available_bikes).to eq([working_bike])
   end
   it "should provide a list of broken bikes" do
     station_with_two_bikes
-    expect(holder.broken_bikes).to eq([@broken_bike])
+    expect(holder.broken_bikes).to eq([broken_bike])
   end
 end
