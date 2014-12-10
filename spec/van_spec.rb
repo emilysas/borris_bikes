@@ -1,22 +1,16 @@
-require './lib/van.rb'
+
+require 'van'
 
 
 describe Van do
 	
-  let(:van){Van.new(capcity = DEFAULT_CAPACITY)}
-  let(:bike){Bike.new}
+  let(:van) {Van.new(:capacity => 10)}
+  let(:bike) {Bike.new}
 
-  #it "should be able to go to stations" do
-   # bike.break!
-   # expect(van)
- # end
-
-  it "should not dock working bikes" do
-  	expect(van.dock(bike)).to eq(0) 
+ it "should allow setting default capacity on initializing" do
+    expect(van.capacity).to eq(10)
   end
 
-  #it "should be able to go to garage" do
-  #end
 
 end
 
