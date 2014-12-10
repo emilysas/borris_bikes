@@ -9,8 +9,5 @@ include BikeContainer
   	self.capacity=(options.fetch(:capacity, capacity))
   end
 
-  def broken_bikes
-    bikes.select {|bike| bike.broken? }
-  end
 
 end
