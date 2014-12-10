@@ -1,21 +1,14 @@
-require_relative 'bike'
+
 require_relative 'bike_container'
 
-class DockingStation 
-  
-include BikeContainer
+class DockingStation
 
-  @default_capacity = 25
+include BikeContainer 
 
-  def dock(bike)
-    raise "Station is full" if full?
-    super
+
+ def initialize(options = {})
+    self.capacity = options.fetch(:capacity, capacity)
   end
-
-  def available_bikes
-    @bikes.reject{|bike| bike.broken? }
-  end
-
 end
 
 
