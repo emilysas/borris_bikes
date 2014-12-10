@@ -1,3 +1,5 @@
+require_relative 'bike'
+
 
 class DockingStation 
   
@@ -26,7 +28,7 @@ class DockingStation
   end
 
   def available_bikes
-    @bikes.select{|bike| bike.broken? == false}
+    @bikes.reject{|bike| bike.broken? }
   end
 
 end
