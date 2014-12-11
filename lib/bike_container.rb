@@ -30,6 +30,7 @@ module BikeContainer
 
   def release(bike)
     raise "No Bikes to Release" if container_empty?
+    raise "Can only release bikes" if !bikes.include?(bike)
     bikes.delete(bike)
   end
 

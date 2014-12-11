@@ -32,8 +32,14 @@ describe BikeContainer do
   end
 
   it "should not try to release anything other bikes" do
-    expect(lambda { holder.release(van) }).to raise_error(RuntimeError, 'Can only release bikes')
+    holder.dock(bike)
+    expect(lambda { holder.release(nil) }).to raise_error(RuntimeError, 'Can only release bikes')
   end
+
+  it "should return argument error if no arguments given" do
+    holder.dock(bike)
+    expect(lambda { holder.release() }).to raise_error(ArgumentError, "you must specify a bike to release")
+  end 
 
   it "should know when it's full" do
     expect(holder).not_to be_full
