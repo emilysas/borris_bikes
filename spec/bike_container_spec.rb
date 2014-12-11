@@ -4,9 +4,9 @@ class ContainerHolder; include BikeContainer; end
 
 describe BikeContainer do
 
-  let(:bike) {double :bike}
-  let(:working_bike) {double :bike, broken?: false}
-  let(:broken_bike) {double :bike, broken?: true}
+  let(:bike) {double :bike, is_a?: Bike}
+  let(:working_bike) {double :bike, broken?: false, is_a?: Bike}
+  let(:broken_bike) {double :bike, broken?: true, is_a?: Bike}
   let(:holder) { ContainerHolder.new }
  
   def station_with_two_bikes
@@ -36,9 +36,9 @@ describe BikeContainer do
     expect(lambda { holder.release(nil) }).to raise_error(RuntimeError, 'Can only release bikes')
   end
 
-  xit "should return argument error if no arguments given" do
+  it "should return argument error if no arguments given" do
     holder.dock(bike)
-    expect(lambda { holder.release() }).to raise_error(ArgumentError, "you must specify a bike to release")
+    expect(lambda { holder.release() }).to raise_error(ArgumentError, "wrong number of arguments (0 for 1)")
   end 
 
   it "should know when it's full" do

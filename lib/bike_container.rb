@@ -21,6 +21,7 @@ module BikeContainer
 
   def dock(bike)
     raise "Station is full" if full?
+    raise "Can only dock bikes" unless bike.is_a?(Bike)
     bikes << bike
   end
 
@@ -29,9 +30,8 @@ module BikeContainer
   end
 
   def release(bike)
-    #raise ArgumentError("you must specify a bike to release") if 
     raise "No Bikes to Release" if container_empty?
-    raise "Can only release bikes" if !bikes.include?(bike)
+    raise "Can only release bikes" unless bike.is_a?(Bike)
     bikes.delete(bike)
   end
 

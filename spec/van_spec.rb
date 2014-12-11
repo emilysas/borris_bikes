@@ -6,7 +6,7 @@ describe Van do
   let(:van) {Van.new(:capacity => 10)}
   let(:bike) {double :bike}
   let(:working_bike){double :bike, broken: false}
-  let(:broken_bike){double :bike, broken: true}
+  let(:broken_bike){double :bike, broken: true, is_a?: Bike}
   let(:station) {double :station, capacity: 25, broken_bikes: [broken_bike]}
 
 

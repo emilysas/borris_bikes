@@ -1,0 +1,14 @@
+irb
+
+class Derp
+end
+
+
+require './lib/bike_container.rb'
+require './lib/docking_station.rb'
+require './lib/bike.rb'
+
+station = DockingStation.new
+station2 = DockingStation.new
+derp = Derp.new
+bike = Bike.new
