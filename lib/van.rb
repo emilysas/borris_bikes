@@ -15,5 +15,10 @@ class Van
   	broken_bikes.each {|bike| dock(bike)}
   end
 
+  def garage_pickup(garage)
+  	available_bikes = garage.available_bikes
+  	available_bikes.each {|bike| dock(bike)}
+  end
+
 
 end
