@@ -10,8 +10,9 @@ class Van
   	self.capacity=(options.fetch(:capacity, capacity))
   end
 
-  def station_pickup(bike)
-  	self.dock(bike) if bike.broken?
+  def station_pickup(station)
+  	broken_bikes = station.broken_bikes
+  	broken_bikes.each {|bike| dock(bike)}
   end
 
 
