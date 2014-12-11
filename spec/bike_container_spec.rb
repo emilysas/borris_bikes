@@ -27,6 +27,12 @@ describe BikeContainer do
    expect(holder.bike_count).to eq(0)
   end 
 
+  it "should not release a bike that doesn't exist" do
+   holder.release(bike) 
+   expect(holder.release(bike)).to raise_error(RuntimeError, 'No Bikes to Release')
+  
+  end
+
   it "should know when it's full" do
     expect(holder).not_to be_full
     10.times {holder.dock(Bike.new)}
@@ -46,4 +52,6 @@ describe BikeContainer do
     station_with_two_bikes
     expect(holder.broken_bikes).to eq([broken_bike])
   end
+
+
 end
