@@ -24,7 +24,12 @@ module BikeContainer
     bikes << bike
   end
 
+  def container_empty?
+    bike_count <= 0
+  end
+
   def release(bike)
+    raise "No Bikes to Release" if container_empty?
     bikes.delete(bike)
   end
 

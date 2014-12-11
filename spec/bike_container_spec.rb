@@ -21,16 +21,18 @@ describe BikeContainer do
   end
 
   it "should release a bike" do 
-   holder.dock(bike)
-   expect(holder.bike_count).to eq(1)
-   holder.release(bike)
-   expect(holder.bike_count).to eq(0)
+    holder.dock(bike)
+    expect(holder.bike_count).to eq(1)
+    holder.release(bike)
+    expect(holder.bike_count).to eq(0)
   end 
 
   it "should not release a bike that doesn't exist" do
-   holder.release(bike) 
-   expect(holder.release(bike)).to raise_error(RuntimeError, 'No Bikes to Release')
-  
+    expect(lambda { holder.release(bike) }).to raise_error(RuntimeError, 'No Bikes to Release')
+  end
+
+  it "should not try to release anything other bikes" do
+    expect(lambda { holder.release(van) }).to raise_error(RuntimeError, 'Can only release bikes')
   end
 
   it "should know when it's full" do
