@@ -29,6 +29,7 @@ module BikeContainer
   end
 
   def release(bike)
+    #raise ArgumentError("you must specify a bike to release") if 
     raise "No Bikes to Release" if container_empty?
     raise "Can only release bikes" if !bikes.include?(bike)
     bikes.delete(bike)
