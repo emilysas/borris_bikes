@@ -5,16 +5,10 @@ class DockingStation
 
 include BikeContainer 
 
-@@stations = []
-
  def initialize(options = {})
-    self.capacity = options.fetch(:capacity, capacity)
-	@@stations << self  
+    self.capacity = options.fetch(:capacity, capacity) 
   end
 
-  def self.stations
-  	@@stations
-  end
 end
 
 

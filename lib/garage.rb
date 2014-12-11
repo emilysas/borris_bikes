@@ -10,9 +10,9 @@ class Garage
 		self.capacity=(options.fetch(:capacity, capacity))
 	end
 
-	def accept(bike)
+	def dock(bike)
+	  super
 	  bike.fix!
-	  dock(bike)
 	end
 
 end
