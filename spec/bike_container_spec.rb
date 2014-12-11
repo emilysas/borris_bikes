@@ -61,5 +61,10 @@ describe BikeContainer do
     expect(holder.broken_bikes).to eq([broken_bike])
   end
 
+  it "should be able to transfer to another container" do 
+    allow(garage).to receive(:release)
+    expect(van).to receive(:dock).with working_bike
+    van.transfer(garage.available_bikes, from: garage)
+  end
 
 end

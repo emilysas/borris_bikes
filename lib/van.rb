@@ -9,17 +9,4 @@ class Van
   	self.capacity=(options.fetch(:capacity, capacity))
   end
 
-  def station_pickup(station)
-  	broken_bikes = station.broken_bikes 
-    broken_bikes.each {|bike| dock(bike)}
-    broken_bikes.each {|bike| station.release(bike)}
-  end
-
-  def garage_pickup(garage)
-  	available_bikes = garage.available_bikes
-  	available_bikes.each {|bike| dock(bike)}
-    available_bikes.each {|bike| garage.release(bike)}
-  end
-
-
 end

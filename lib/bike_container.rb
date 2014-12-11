@@ -46,4 +46,26 @@ module BikeContainer
   def broken_bikes
     bikes.select(&BROKEN_BIKES)
   end
+
+  def transfer bikes, from: container
+   bikes.each {|bike| self.dock(bike); from.release(bike)}
+  end
+
 end
+
+ #van.transfer(broken_bikes, from: station)
+
+# #it will pick up the broken bikes from the station and 
+# #it will dock them in itself(the van)
+
+ #garage.transfer(broken_bikes, from: van)
+
+
+
+ #van.transfer(available_bikes, from: garage)
+
+# #it will pick up the working bikes from the garage and
+# #it will dock them in itself(the van)
+
+ #station.transfer(available_bikes, from: van)
+
