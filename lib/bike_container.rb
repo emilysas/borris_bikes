@@ -18,7 +18,7 @@ module BikeContainer
   end
 
   def dock(bike)
-    raise "Station is full" if full?
+    raise "Sorry! No more room for bikes" if full?
     raise "Can only dock bikes" unless bike.is_a?(Bike)
     bikes << bike
   end
