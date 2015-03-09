@@ -60,14 +60,6 @@ Modules
 
 * Bike Container (this module created the methods that would be shared by a depot, van and garage)
 
-___________________________
-
-##How to use borris bikes
-
-To use in irb:
-```shell
-ruby borris_bikes.rb
-```
 
 _______________________________
 
